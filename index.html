@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Khám phá tương lai của thiết kế website với sự kết hợp giữa Trí tuệ nhân tạo (AI) và Interactive Design. Xu hướng SEO và công nghệ web mới nhất 2024.">
+    <meta name="keywords" content="AI Website, Web Design Trends, SEO 2024, Interactive Web, Trí tuệ nhân tạo">
+    <meta name="author" content="AI Content Expert">
+    <title>Kỷ Nguyên Mới: Khi AI Gặp Gỡ Nghệ Thuật Web Design | TechVision</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #ec4899;
+            --bg-dark: #0f172a;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Particle Canvas Background */
+        #canvas-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        /* Glassmorphism Classes */
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-header {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Typography Gradients */
+        .text-gradient {
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f472b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-start infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .code-snippet {
+            font-family: 'Fira Code', monospace;
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            border-left: 4px solid var(--primary);
+        }
+    </style>
+</head>
+<body class="antialiased relative">
+
+    <!-- Canvas Background -->
+    <canvas id="canvas-bg"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-header transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="cpu" class="text-indigo-400 w-8 h-8"></i>
+                    <span class="text-xl font-bold heading-font tracking-wide">TechVision<span class="text-indigo-500">.AI</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">Xu hướng</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">Công nghệ</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">Về chúng tôi</a>
+                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-full text-sm font-medium transition-all shadow-lg shadow-indigo-500/30">
+                        Đăng ký tin
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        
+        <!-- Breadcrumbs (SEO Microdata) -->
+        <nav aria-label="Breadcrumb" class="mb-8 reveal">
+            <ol class="flex items-center space-x-2 text-sm text-gray-400">
+                <li><a href="#" class="hover:text-indigo-400">Trang chủ</a></li>
+                <li><i data-lucide="chevron-right" class="w-4 h-4"></i></li>
+                <li><a href="#" class="hover:text-indigo-400">Blog Công Nghệ</a></li>
+                <li><i data-lucide="chevron-right" class="w-4 h-4"></i></li>
+                <li class="text-indigo-400" aria-current="page">AI & Web Design</li>
+            </ol>
+        </nav>
+
+        <!-- Article Header -->
+        <header class="text-center mb-16 reveal">
+            <div class="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 rounded-full text-indigo-300 text-sm mb-6">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                </span>
+                <span>Cập nhật mới nhất 2025</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 heading-font leading-tight">
+                Kỷ Nguyên Mới Của Website:<br>
+                <span class="text-gradient">Khi AI Gặp Gỡ Interactive Art</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                Khám phá cách trí tuệ nhân tạo đang định hình lại trải nghiệm người dùng, biến những website tĩnh thành các thực thể sống động và thông minh.
+            </p>
+            
+            <div class="flex items-center justify-center space-x-6 mt-8 text-sm text-gray-500">
+                <div class="flex items-center space-x-2">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Author Avatar" class="w-8 h-8 rounded-full border border-gray-700">
+                    <span>Viết bởi <strong>Alex Nguyen</strong></span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="clock" class="w-4 h-4"></i>
+                    <span>5 phút đọc</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                    <span>11/12/2025</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- AI Summary Widget (Interactive Element) -->
+        <div class="glass-panel rounded-2xl p-6 mb-16 reveal border-l-4 border-indigo-500 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <i data-lucide="bot" class="w-24 h-24 text-indigo-400"></i>
+            </div>
+            <div class="relative z-10">
+                <h3 class="text-lg font-semibold text-white mb-2 flex items-center">
+                    <i data-lucide="sparkles" class="w-5 h-5 text-yellow-400 mr-2"></i>
+                    AI Tóm Tắt Nội Dung
+                </h3>
+                <div id="ai-summary-content" class="text-gray-300 text-sm leading-relaxed min-h-[60px]">
+                    Bạn quá bận rộn? Hãy để trợ lý AI của chúng tôi tóm tắt 3 ý chính của bài viết này cho bạn.
+                </div>
+                <button id="btn-summarize" class="mt-4 bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 border border-white/10">
+                    <i data-lucide="play" class="w-4 h-4"></i>
+                    <span>Tạo tóm tắt ngay</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Article Content -->
+        <article class="prose prose-invert prose-lg max-w-none">
+            
+            <div class="reveal mb-12">
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    Đã qua rồi cái thời website chỉ là những tấm danh thiếp online tĩnh lặng. Năm 2025 đánh dấu sự bùng nổ của <strong class="text-indigo-400">Generative Web Design</strong> - nơi thuật toán và cảm xúc con người giao thoa để tạo ra những trải nghiệm độc bản.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16 reveal">
+                <div>
+                    <h2 class="text-3xl font-bold mb-4 text-white heading-font">1. Cá Nhân Hóa Cực Đại (Hyper-Personalization)</h2>
+                    <p class="text-gray-400 mb-4">
+                        Không còn khái niệm "One size fits all". Với sự hỗ trợ của AI, website giờ đây có khả năng học hỏi hành vi người dùng theo thời gian thực (Real-time Learning).
+                    </p>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-400 mr-2 mt-1"></i>
+                            <span>Giao diện tự động thay đổi theo sở thích người xem.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-400 mr-2 mt-1"></i>
+                            <span>Nội dung được sắp xếp lại dựa trên lịch sử tương tác.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-400 mr-2 mt-1"></i>
+                            <span>Chatbot AI hiểu ngữ cảnh sâu sắc hơn.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative glass-panel p-1 rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop" alt="AI Personalization Interface" class="rounded w-full object-cover h-64">
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-panel p-8 rounded-2xl mb-16 reveal bg-gradient-to-br from-indigo-900/30 to-purple-900/30">
+                <h2 class="text-3xl font-bold mb-6 text-white heading-font text-center">2. Visual Storytelling: Kể Chuyện Bằng Hiệu Ứng</h2>
+                <p class="text-gray-300 text-center max-w-2xl mx-auto mb-8">
+                    SEO hiện đại không chỉ là từ khóa. Google ngày càng ưu tiên các chỉ số UX như "Time on Page". Và không gì giữ chân người dùng tốt hơn một câu chuyện được kể bằng Scrollytelling (kể chuyện qua thao tác cuộn).
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-indigo-500 transition-colors">
+                        <div class="w-12 h-12 bg-indigo-500/20 rounded-lg flex items-center justify-center mb-4 text-indigo-400">
+                            <i data-lucide="mouse-pointer-2" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-2">Micro-Interactions</h4>
+                        <p class="text-sm text-gray-400">Những phản hồi nhỏ khi di chuột tạo cảm giác mượt mà và chuyên nghiệp.</p>
+                    </div>
+                    <div class="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-pink-500 transition-colors">
+                        <div class="w-12 h-12 bg-pink-500/20 rounded-lg flex items-center justify-center mb-4 text-pink-400">
+                            <i data-lucide="layers" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-2">3D & WebGL</h4>
+                        <p class="text-sm text-gray-400">Đưa vật thể 3D trực tiếp lên trình duyệt mà không làm nặng trang web.</p>
+                    </div>
+                    <div class="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-cyan-500 transition-colors">
+                        <div class="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center mb-4 text-cyan-400">
+                            <i data-lucide="zap" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-2">Hiệu Năng Cao</h4>
+                        <p class="text-sm text-gray-400">Tối ưu hóa Core Web Vitals để đạt điểm SEO tuyệt đối.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-16 reveal">
+                <h2 class="text-3xl font-bold mb-4 text-white heading-font">3. Cấu Trúc Dữ Liệu & SEO Trong Thời Đại AI</h2>
+                <p class="text-gray-400 mb-4">
+                    Khi các công cụ tìm kiếm tích hợp AI (như Google SGE), việc viết nội dung không chỉ dành cho con người đọc, mà còn phải để máy móc "hiểu".
+                </p>
+                <div class="code-snippet text-sm overflow-x-auto text-gray-300">
+                    <span class="text-gray-500">&lt;!-- Ví dụ về Schema Markup JSON-LD --&gt;</span><br>
+                    <span class="text-purple-400">"hasPart"</span>: {<br>
+                    &nbsp;&nbsp;<span class="text-purple-400">"@type"</span>: <span class="text-green-400">"WebApplication"</span>,<br>
+                    &nbsp;&nbsp;<span class="text-purple-400">"name"</span>: <span class="text-green-400">"AI Design Tool"</span>,<br>
+                    &nbsp;&nbsp;<span class="text-purple-400">"description"</span>: <span class="text-green-400">"Tích hợp công cụ tạo sinh ảnh realtime"</span><br>
+                    }
+                </div>
+                <p class="text-gray-400 mt-4 text-sm italic">
+                    *Việc sử dụng Schema Markup giúp AI của Google hiểu rõ cấu trúc và nội dung trang web của bạn hơn bao giờ hết.
+                </p>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="reveal mt-20 text-center">
+                <div class="inline-block p-[1px] rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                    <div class="bg-gray-900 rounded-2xl p-10 md:p-14">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 heading-font">Sẵn Sàng Cho Tương Lai?</h2>
+                        <p class="text-gray-400 mb-8 max-w-xl mx-auto">
+                            Đừng để website của bạn tụt hậu. Hãy bắt đầu tích hợp AI và các hiệu ứng hiện đại ngay hôm nay để dẫn đầu xu hướng SEO.
+                        </p>
+                        <button class="bg-white text-indigo-900 px-8 py-3 rounded-full font-bold hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all transform hover:-translate-y-1">
+                            Tư Vấn Giải Pháp Web AI
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 bg-gray-900/50 backdrop-blur-sm pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-lucide="cpu" class="text-indigo-400 w-6 h-6"></i>
+                        <span class="text-xl font-bold heading-font text-white">TechVision</span>
+                    </div>
+                    <p class="text-gray-400 text-sm max-w-xs">
+                        Chuyên trang công nghệ và thiết kế web hàng đầu, mang đến những xu hướng mới nhất về AI và Digital Marketing.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Khám phá</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-indigo-400">AI Design Tools</a></li>
+                        <li><a href="#" class="hover:text-indigo-400">Web 3.0</a></li>
+                        <li><a href="#" class="hover:text-indigo-400">SEO Technical</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Kết nối</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                &copy; 2025 TechVision AI. All rights reserved. Designed with Future in mind.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactions & Effects -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // --- 1. Canvas Particle Network Animation ---
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5; // Slow movement
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0) this.x = width;
+                if (this.x > width) this.x = 0;
+                if (this.y < 0) this.y = height;
+                if (this.y > height) this.y = 0;
+            }
+
+            draw() {
+                ctx.fillStyle = 'rgba(99, 102, 241, 0.5)'; // Indigo-like color
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // Create particles
+        for (let i = 0; i < 50; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, width, height);
+            
+            // Update and draw particles
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                // Draw connections
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 150) {
+                        ctx.strokeStyle = `rgba(99, 102, 241, ${0.15 - distance / 1000})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+        animateCanvas();
+
+        // --- 2. Scroll Reveal Animation ---
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // --- 3. Simulated AI Summarizer ---
+        const summarizeBtn = document.getElementById('btn-summarize');
+        const summaryContent = document.getElementById('ai-summary-content');
+        
+        const summaryText = [
+            "1. Cá nhân hóa (Hyper-Personalization) là chìa khóa giữ chân người dùng.",
+            "2. Visual Storytelling tăng Time-on-page và cải thiện SEO.",
+            "3. Cấu trúc dữ liệu (Schema) giúp website thân thiện với AI Search."
+        ];
+
+        summarizeBtn.addEventListener('click', () => {
+            // UI State change
+            summarizeBtn.innerHTML = '<i data-lucide="loader" class="w-4 h-4 animate-spin"></i><span>Đang phân tích...</span>';
+            lucide.createIcons();
+            summarizeBtn.disabled = true;
+
+            // Simulate AI processing delay
+            setTimeout(() => {
+                summaryContent.innerHTML = '';
+                summaryContent.classList.add('typing-cursor');
+                
+                let lineIndex = 0;
+                let charIndex = 0;
+                let currentText = '';
+
+                function typeWriter() {
+                    if (lineIndex < summaryText.length) {
+                        if (charIndex < summaryText[lineIndex].length) {
+                            currentText += summaryText[lineIndex].charAt(charIndex);
+                            // Refresh content
+                            summaryContent.innerHTML = currentText.replace(/\n/g, '<br>') + '<br>'; 
+                            charIndex++;
+                            setTimeout(typeWriter, 30); // Typing speed
+                        } else {
+                            currentText += '<br>'; // New line
+                            lineIndex++;
+                            charIndex = 0;
+                            setTimeout(typeWriter, 300); // Pause between lines
+                        }
+                    } else {
+                        // Finished
+                        summaryContent.classList.remove('typing-cursor');
+                        summarizeBtn.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i><span>Đã hoàn tất</span>';
+                        lucide.createIcons();
+                        summarizeBtn.classList.remove('bg-white/10');
+                        summarizeBtn.classList.add('bg-green-500/20', 'text-green-300', 'border-green-500/30');
+                    }
+                }
+                typeWriter();
+
+            }, 1500);
+        });
+
+    </script>
+</body>
+</html>
